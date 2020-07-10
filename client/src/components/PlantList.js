@@ -10,7 +10,8 @@ export default class PlantList extends Component {
   constructor(){
     super();
     this.state = {
-      plants: []
+      plants: [],
+      formValues: ''
     }
   }
 
@@ -26,8 +27,6 @@ export default class PlantList extends Component {
     })
   }
 
-
- /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   render() {
     return (
       <main className="plant-list">
