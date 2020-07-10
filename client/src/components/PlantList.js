@@ -47,10 +47,9 @@ export default class PlantList extends Component {
   } 
 
   render() {
-    
     return (
       <div>
-        <label htmlFor="searchInput">
+        <label id='search' htmlFor="searchInput">
             Search for a Plant:
             <input type="text" id="searchInput" name='search' value={this.state.search} onChange={this.handlechange}/>
         </label> 
