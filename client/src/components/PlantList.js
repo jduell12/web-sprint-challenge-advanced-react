@@ -9,6 +9,13 @@ export default class PlantList extends Component {
   //   - set the returned plants array to this.state.plants
 
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
+  constructor(){
+    super();
+    this.state = {
+      plants: []
+    }
+  }
+
   render() {
     return (
       <main className="plant-list">
