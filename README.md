@@ -30,13 +30,36 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+You want to have a class that extends React.Component. You then want a constructor that has a super() as well as a this.state. In the this.state you can set state for the compoennt. 
+
 2. Describe the different phases of the component lifecycle.
+
+The three major phases of a component lifecycle is the mounting, updating and unmounting phases. In the mounting phase the render method is involved and you can set any initial data you want to the component's state. In the updating phase you can change the component's state data using setState which will cause a re-render of the component. In the unmounting phase removes the component from the screen. 
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+The main method for the mounting phase is componentDidMount. This is called only once when the component is mounted to the screen and can be used to set initial state for the component. 
+
+The two main methods in the updating phase is setState and shouldComponentUpdate. The setState function will change the state of the component and cause a re-render. The shouldComponentUpdate method is used to prevent a re-render so that the component doesn't re-render on every state change. 
+
+The main method in the unmounting phase is componentWillUnmount. This method is used for clean up of the component, data or state that may be needed. 
+
 4. Define stateful logic.
 
+Stateful logic is logic that is built into a component that manages state. This can be handleChange event, getting or updating data or handling a click event.
+
 5. Describe how to test a React component with React Testing Library.
+
+You open a terminal and enter the command npm test. This will open the react testing interface. You then create a file with a name.test.js to let react know this is a testing file. You then create a test by typing test('explanation of the test' () => {}). In the callback function you will enter in each step of the test. 
+
+One of the main ways to test is to arrange, act, assert. In arrange you render the React element into a virtual DOM. In act you get the individual elements to tests by using screen.getBy or .findBy. In assert you expect the element you grabbed toBeInTheDocument() or not to be in the document. 
+
+ex. 
+test('testing test', () => {
+  render<Test/>
+  const testText = screen.getByText('testing')
+  expect(testText).toBeInTheDocument()
+})
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
