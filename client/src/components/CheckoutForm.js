@@ -68,7 +68,9 @@ const CheckoutForm = (props) => {
           Zip:
           <input name="zip" id="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <label htmlFor='checkout'>
+          <button id='checkout'>Checkout</button>
+        </label>
       </form>
 
       {showSuccessMessage && (

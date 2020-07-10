@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import CheckoutForm from "./CheckoutForm";
 
 // Write up the two tests here and make sure they are testing what the title shows
@@ -21,7 +21,40 @@ test("form shows success message on submit with form details", () => {
     const state = screen.getByLabelText(/state/i);
     const zip = screen.getByLabelText(/zip/i);
 
-    //click submit button 
+    //change text in input fields
+    fireEvent.change(firstName, {target: {value: 'Aroura'}});
+    fireEvent.change(lastName, {target: {value: 'Nightingale'}});
+    fireEvent.change(address, {target: {value: '1234 Street'}});
+    fireEvent.change(city, {target: {value: 'Apex'}});
+    fireEvent.change(state, {target: {value: 'North Carolina'}});
+    fireEvent.change(zip, {target: {value: 27539}});
 
-    //assert that the submit button worked 
+    //click checkout button 
+    const checkoutBtn = screen.getByLabelText(/checkout/i);
+    fireEvent.click(checkoutBtn);
+
+    //assert that the checkout button worked 
+    const newFirstName = screen.getByText(/aroura/i);
+    expect(newFirstName).toBeInTheDocument();
+
+    const newLastName = screen.getByText(/nightingale/i);
+    expect(newLastName).toBeInTheDocument();
+
+    const newAddress = screen.getByText(/1234 street/i);
+    expect(newAddress).toBeInTheDocument();
+
+    const newCity = screen.getByText(/apex/i);
+    expect(newCity).toBeInTheDocument();
+
+    const newState = screen.getByText(/north carolina/i);
+    expect(newState).toBeInTheDocument();
+
+    const newZip = screen.getByText(/27539/);
+    expect(newZip).toBeInTheDocument();
+
+    const successMessage = screen.getByText(/you have ordered some plants! woo-hoo!/i);
+    expect(successMessage).toBeInTheDocument();
+
+    const secondSuccessMessage = screen.getByText(/your new green friends will be shipped to/i);
+    expect(secondSuccessMessage).toBeInTheDocument();
 });
